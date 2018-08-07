@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  Header
+  <div style="display: block;  border-bottom: 1px solid rgba(0, 0, 0, 0.08);">
+    <ion-input [(ngModel)]="myHeader" type="text" placeholder="Enter header..."></ion-input>
+  </div>
+  Description
+  <ion-textarea (input)="textChange()" [(ngModel)]="myText" rows="10" placeholder="Enter description..."></ion-textarea>
+  
+  <ion-card *ngIf="myPhoto">
+    <div style="position: absolute;">
+        <button ion-button clear color="dark" (click)="deleteImg()">
+          <div class="closeIcon">X</div>
+        </button>
+    </div>
+    <img src="{{myPhoto}}" />           
+  </ion-card>
+  <ion-card [hidden]="!isMap">
+      <div class="closeBtn">
+          <button ion-button clear color="dark" (click)="deleteMap()">
+            <div class="closeIcon">X</div>
+          </button>
+      </div>
+    <div id="map"></div>
+  </ion-card>
+  <br>
+  <button ion-button icon-only color="dark" (click)="takePhoto()">
+    <ion-icon name="camera"></ion-icon>
+  </button>
+  <button ion-button icon-only color="dark" (click)="getImage()">
+    <ion-icon name="image"></ion-icon>
+  </button>
+  <button ion-button icon-only color="dark" (click)="addMap()">
+    <ion-icon name="compass"></ion-icon>
+  </button>
+  <hr>
+  <button ion-button full expand="full" (click)="addNote()" [disabled]="!btnEnabled">Add</button>
+</ion-content>
+  

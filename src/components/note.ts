@@ -1,6 +1,6 @@
-export class Note{
-    header: string;
-    text: string;
-    image: any;
-    map: any;
+export class Note {
+  public header: string;
+  public text: string;
+  public image: any;
+  public map: any;
 }

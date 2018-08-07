@@ -3,9 +3,9 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { AuthorizationPage } from '../pages/authorization/authorization';
+import { AuthorizationPage } from '../pages/authorization/authorization.page';
 
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 const config = {
   apiKey: "AIzaSyCpqP2yni8791VWGDmLASHjA2GujzDctis",
@@ -13,15 +13,15 @@ const config = {
   databaseURL: "https://anton-51782.firebaseio.com",
   projectId: "anton-51782",
   storageBucket: "anton-51782.appspot.com",
-  messagingSenderId: "890891651047"
+  messagingSenderId: "890891651047",
 };
 firebase.initializeApp(config);
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.component.html',
 })
 export class MyApp {
-  rootPage:any = AuthorizationPage;
+  public rootPage: any = AuthorizationPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -6,49 +6,31 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
-import { NotesPage } from '../pages/notes/notes';
-import { AddNotePage } from '../pages/addNote/addNote';
-import { AuthorizationPage } from '../pages/authorization/authorization';
-import { RegisterPage } from '../pages/register/register';
-import { TabsPage } from '../pages/tabs/tabs';
-import { NoteDetailPage } from '../pages/note-detail/note-detail';
-import { NoteItem } from '../pages/notes/components/note/note.component';
-import { AccountPage } from '../pages/account/account';
+import { AuthorizationPageModule } from '../pages/authorization/authorization.module';
+import { RegisterPageModule } from '../pages/register/register.module';
+import { TabsPageModule } from '../pages/tabs/tabs.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { NotesService } from '../pages/notes/service/notes.service'
+import { NotesService } from '../pages/notes/service/notes.service';
 
 @NgModule({
   declarations: [
     MyApp,
-    NotesPage,
-    AddNotePage,
-    NoteItem,
-    AuthorizationPage,
-    TabsPage,
-    NoteDetailPage,
-    RegisterPage,
-    AccountPage
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    IonicModule.forRoot(MyApp)
+    AuthorizationPageModule,
+    RegisterPageModule,
+    TabsPageModule,
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    NotesPage,
-    AddNotePage,
-    NoteItem,
-    AuthorizationPage,
-    TabsPage,
-    NoteDetailPage,
-    RegisterPage,
-    AccountPage
   ],
   providers: [
     StatusBar,
@@ -56,7 +38,7 @@ import { NotesService } from '../pages/notes/service/notes.service'
     SplashScreen,
     Camera,
     LocalNotifications,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+  ],
 })
 export class AppModule {}
