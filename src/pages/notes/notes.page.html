@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div align="center">
+    <ion-spinner *ngIf="stateLoad"></ion-spinner>
+  </div>
+  <h2 *ngIf="(myNotes === null) && !stateLoad">You don't have any notes</h2>
+  <app-note *ngFor="let item of myNotes; let i = index" [note]="item" [id]="i"></app-note>
+</ion-content>
